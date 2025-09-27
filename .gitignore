@@ -1,0 +1,138 @@
+# --- Core .NET / Visual Studio ---
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.cache
+*.orig
+*.psess
+*.vsp
+*.vsmdi
+
+# Rider / ReSharper / CodeRush
+.idea/
+*.sln.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.cr/
+.cr/personal
+
+# Build results
+[bB]in/
+[oO]bj/
+[Bb]uild/
+[Bb]ld/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Rr]elease/
+[xX]64/
+[xX]86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+ipch/
+artifacts/
+
+# Visual Studio
+.vs/
+.vscode/
+**/*.VC.db
+**/*.VC.opendb
+*.opendb
+
+# Test / Coverage
+[Tt]est[Rr]esults/
+*.trx
+*.coverage
+*.coveragexml
+*.testsettings
+*.runsettings
+
+# NuGet
+*.nupkg
+# If using packages folder (legacy)
+packages/**
+!packages/build/
+!packages/repositories.config
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Paket
+.paket/
+paket-files/
+
+# Azure publish profiles & Web Deploy
+*.publishsettings
+*.pubxml
+*.pubxml.user
+Properties/PublishProfiles/
+**/Properties/PublishProfiles/
+*.Publish.xml
+
+# IIS / IIS Express
+_IISExpress/
+.vs/iisexpress/
+applicationhost.config
+App_Data/Logs/
+App_Data/**/*.log
+
+# ASP.NET (WebForms/MVC classic)
+# Local DBs and data files
+App_Data/*.mdf
+App_Data/*.ldf
+App_Data/*.mdb
+App_Data/aspnet-*.log
+App_Data/**/aspnetdb.*
+# Temporary & state
+App_Data/Temp/
+App_Data/Temporary ASP.NET Files/
+# Ignore common config overrides
+Web.Debug.config
+Web.Release.config
+*.config.user
+
+# Front-end artifacts (if present)
+node_modules/
+bower_components/
+wwwroot/lib/
+dist/
+tmp/
+temp/
+
+# SQL/DB artifacts
+*.db
+*.dbmdl
+*.mdf
+*.ldf
+*.bak
+*.bacpac
+
+# Logs
+*.log
+*.svclog
+
+# Images/binaries (optional—uncomment if you don't want these tracked)
+#*.exe
+#*.dll
+#*.pdb
+#*.mp4
+#*.avi
+#*.mov
+#*.zip
+#*.rar
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Others
+_UpgradeReport_Files/
+Backup*/
+$RECYCLE.BIN/
+~$*
+*~
