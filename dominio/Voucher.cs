@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    internal class Voucher
+    public class Voucher
     {
-        public int CodigoVoucher { get; set; }
-        public string IdCliente { get; set; }
+        public string CodigoVoucher { get; set; }
+        public int IdCliente { get; set; }
         public DateTime FechaCanje { get; set; }
         public int IdArticulo { get; set; }
     }

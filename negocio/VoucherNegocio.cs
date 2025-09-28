@@ -9,9 +9,9 @@ namespace negocio
 {
     internal class VoucherNegocio
     {
-      public List<Categoria> Listar()
+      public List<Voucher> Listar()
         {
-          List<Categoria> lista = new List<Categoria>();
+          List<Voucher> lista = new List<Voucher>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -20,9 +20,11 @@ namespace negocio
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    Categoria aux = new Categoria();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    Voucher aux = new Voucher();
+                    aux.CodigoVoucher = (string)datos.Lector["CodigoVoucher"];
+                    aux.IdCliente = (int)datos.Lector["IdCliente"];
+                    aux.FechaCanje = (DateTime)datos.Lector["FechaCanje"];
+                    aux.IdArticulo = (int)datos.Lector["IdArticulo"];
                     lista.Add(aux);
                 }
                 return lista;
