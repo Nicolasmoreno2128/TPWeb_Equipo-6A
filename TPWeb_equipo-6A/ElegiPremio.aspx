@@ -7,7 +7,6 @@
     <div class="container text-center mt-5">
         <div class="row align-items-start">
             <div class="col">
-
                 <div class="card" style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -16,8 +15,6 @@
                         <a href="#" class="btn btn-primary">Quiero Este!</a>
                     </div>
                 </div>
-
-
             </div>
             <div class="col">
                 <div class="card" style="width: 18rem;">
@@ -28,7 +25,6 @@
                         <a href="#" class="btn btn-primary">Quiero Este!</a>
                     </div>
                 </div>
-
             </div>
             <div class="col">
 

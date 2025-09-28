@@ -13,10 +13,11 @@ namespace TPWeb_equipo_6A
         {
 
         }
-
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ElegiPremio.aspx");
+            string CodigoVoucher = txtCodigoVoucher.Text;// guardo el dato del boton 
+            Session.Add("Codigo", CodigoVoucher); // lo guardo en la session para usarlo luego desde otra página
+            Response.Redirect("ElegiPremio.aspx"); // voy a la página de selección de premio
         }
     }
 }
