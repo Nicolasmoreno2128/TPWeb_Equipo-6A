@@ -6,24 +6,23 @@
 
     <div class="row row-cols-1 row-cols-md-3">
 
-        <%  foreach (dominio.Articulo art in ListaArticulo)
-            {
-        %>
+<% foreach (var art in ListaArticulo) {
+       var img = ListaImagenes.Find(i => i.IdArticulo == art.Id);
+%>
 
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src=".." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%: art.Nombre %></h5>
-                    <p class="card-text"><%: art.Descripcion %></p>
-                    <a href="#" class="btn btn-primary">Quiero Este!</a>
-                </div>
-            </div>
+<div class="col">
+    <div class="card h-100" style="width: 18rem;">
+        <img src="<%: img != null ? img.ImagenUrl : "imagenes/no-disponible.png" %>" 
+             class="card-img-top" alt="imagen articulo">
+        <div class="card-body">
+            <h5 class="card-title"><%: art.Nombre %></h5>
+            <p class="card-text"><%: art.Descripcion %></p>
+            <a href="#" class="btn btn-primary">Quiero Este!</a>
         </div>
+    </div>
+</div>
 
-        <% 
-            }
-        %>
+<% } %>
     </div>
 
 

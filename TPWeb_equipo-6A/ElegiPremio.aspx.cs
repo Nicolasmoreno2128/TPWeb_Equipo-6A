@@ -12,10 +12,14 @@ namespace TPWeb_equipo_6A
     public partial class WebForm2 : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulo { get; set; }
+        public List<Imagen> ListaImagenes { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+
             ListaArticulo = negocio.listar();
+            ListaImagenes = imgNegocio.Listar();
         }
     }
 }
