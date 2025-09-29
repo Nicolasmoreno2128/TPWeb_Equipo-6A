@@ -9,9 +9,9 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-      public List<Voucher> Listar()
+        public List<Voucher> Listar()
         {
-          List<Voucher> lista = new List<Voucher>();
+            List<Voucher> lista = new List<Voucher>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -21,10 +21,10 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Voucher aux = new Voucher();
-                    aux.CodigoVoucher = (string)datos.Lector["CodigoVoucher"];
-                    aux.IdCliente = (int)datos.Lector["IdCliente"];
-                    aux.FechaCanje = (DateTime)datos.Lector["FechaCanje"];
-                    aux.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    aux.CodigoVoucher = datos.Lector["CodigoVoucher"].ToString();
+                    aux.IdCliente = datos.Lector["IdCliente"] != DBNull.Value ? Convert.ToInt32(datos.Lector["IdCliente"]) : 0;
+                    aux.FechaCanje = datos.Lector["FechaCanje"] != DBNull.Value ? Convert.ToDateTime(datos.Lector["FechaCanje"]) : DateTime.MinValue;
+                    aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value ? Convert.ToInt32(datos.Lector["IdArticulo"]) : 0;
                     lista.Add(aux);
                 }
                 return lista;
