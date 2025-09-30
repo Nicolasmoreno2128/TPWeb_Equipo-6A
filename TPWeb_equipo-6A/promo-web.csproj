@@ -70,6 +70,7 @@
     <Content Include="Web.config" />
     <Content Include="PromoGana.aspx" />
     <Content Include="ElegiPremio.aspx" />
+    <Content Include="Formulario.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="ElegiPremio.aspx.designer.cs">
       <DependentUpon>ElegiPremio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario.aspx.cs">
+      <DependentUpon>Formulario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario.aspx.designer.cs">
+      <DependentUpon>Formulario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
