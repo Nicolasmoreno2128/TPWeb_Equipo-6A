@@ -9,7 +9,7 @@
         <div class="row g-3">
             <div class="col-sm-3">
                 <label for="txbDNI" class="form-label">DNI</label>
-                <asp:TextBox runat="server" ID="txbDNI" CssClass="form-control" placeholder="DNI" />
+                <asp:TextBox runat="server" ID="txbDNI" CssClass="form-control" placeholder="DNI" OnTextChanged="txbDNI_TextChanged" AutoPostBack="true" />
             </div>
             <div class="row g-3">
                 <div class="col">
