@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%: art.Nombre %></h5>
                     <p class="card-text"><%: art.Descripcion %></p>
-                    <a href="#" class="btn btn-primary">Quiero Este!</a>
+                    <a href="Formulario.aspx" class="btn btn-primary">Quiero Este!</a>
                 </div>
             </div>
         </div>
