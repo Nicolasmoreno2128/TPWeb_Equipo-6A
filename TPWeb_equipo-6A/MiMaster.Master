@@ -11,7 +11,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <!-- ajuste Cards-->
+    <!-- ajuste Cards
 <style>
   /* Todas iguales de alto SIN recorte */
   .card-img-top{
@@ -23,7 +23,7 @@
   /* (opcional) con recorte prolijo */
   .card-img-top.cover{ object-fit:cover; }
 </style>
-
+        -->
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,7 +37,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
                         <a class="nav-link active" aria-current="page" href="PromoGana.aspx">PromoGana</a>
-                        <a class="nav-link active" aria-current="page" href="ElegiPremio.aspx">ElegiPremio</a>                        
+                        <a class="nav-link active" aria-current="page" href="ElegiPremio.aspx">ElegiPremio</a>                                               
                     </div>
                 </div>
             </div>
