@@ -25,7 +25,6 @@
                     <asp:TextBox type="email" runat="server" ID="TxbEmail" CssClass="form-control" placeholder="Email" />
                 </div>
             </div>
-
             <div class="row g-3">
                 <div class="col md-6">
                     <label for="txbDireccion" class="form-label">Direccion</label>
@@ -40,17 +39,24 @@
                     <asp:TextBox runat="server" ID="txbCodPostal" CssClass="form-control" placeholder="CP" />
                 </div>
             </div>
-
             <div class="form-check mt-3">
-                <asp:CheckBox ID="chbAcepto" CssClass="form-check-input" runat="server" Text="" />
+                <asp:CheckBox ID="chbAcepto" CssClass="form-check-input" runat="server" Text="" AutoPostBack="true" OnCheckedChanged="chbAcepto_CheckedChanged" />
                 <label class="form-check-label" for="chbAcepto">
                     Acepto los terminos y condiciones.
                 </label>
             </div>
-
         </div>
-        <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-dark mt-3" runat="server" OnClick="btnParticipar_Click" />
+        <div class="row mt-3">
+            <div class="col-auto">
+                <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-dark mt-3" runat="server" OnClick="btnParticipar_Click" />
+            </div>
+            <div class="col align-self-center">
+                <asp:Label ID="lblError" runat="server" CssClass="text-danger mt-2 d-block"></asp:Label>
+            </div>
+        </div>
+
     </div>
+
 
 
 </asp:Content>
