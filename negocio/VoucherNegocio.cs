@@ -9,36 +9,37 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-        public List<Voucher> Listar()
+       public List<Voucher> Listar()
         {
             List<Voucher> lista = new List<Voucher>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("SELECT CodigoVoucher,IdCliente, FechaCanje, IdArticulo FROM Vouchers");
+                datos.setearConsulta("SELECT CodigoVoucher, IdCliente, FechaCanje, IdArticulo FROM Vouchers");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Voucher aux = new Voucher();
                     aux.CodigoVoucher = datos.Lector["CodigoVoucher"].ToString();
-                    aux.IdCliente = datos.Lector["IdCliente"] != DBNull.Value ? Convert.ToInt32(datos.Lector["IdCliente"]) : 0;
-                    aux.FechaCanje = datos.Lector["FechaCanje"] != DBNull.Value ? Convert.ToDateTime(datos.Lector["FechaCanje"]) : DateTime.MinValue;
-                    aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value ? Convert.ToInt32(datos.Lector["IdArticulo"]) : 0;
+                    aux.IdCliente = datos.Lector["IdCliente"] != DBNull.Value ? (int?)Convert.ToInt32(datos.Lector["IdCliente"]) : null;
+                    aux.FechaCanje = datos.Lector["FechaCanje"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(datos.Lector["FechaCanje"]) : null;
+                    aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value ? (int?)Convert.ToInt32(datos.Lector["IdArticulo"]) : null;
+
                     lista.Add(aux);
                 }
                 return lista;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw;
             }
             finally
             {
                 datos.cerrarConexion();
             }
         }
+
 
     }
 }

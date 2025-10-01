@@ -15,29 +15,7 @@ namespace TPWeb_equipo_6A
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        /*protected void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            string CodigoVoucher = txtCodigoVoucher.Text;// guardo el dato del boton 
-            List<Voucher>listaVoucher = new List<Voucher>();
-            foreach (var item in listaVoucher)
-            {
-                if (CodigoVoucher == item.CodigoVoucher)
-                {
-                    Session.Add("Codigo", CodigoVoucher); // lo guardo en la session para usarlo luego desde otra página
-                    Response.Redirect("ElegiPremio.aspx"); // voy a la página de selección de premio
-                    return;
-                }
-                else
-                {
-                    lblErrorVaucher.Text = item.CodigoVoucher + " No es un número válido";
-                }
-            }
-            
-            
-            
-        }*/
-
+        }       
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
             string codigoVoucher = txtCodigoVoucher.Text.Trim();
@@ -45,21 +23,25 @@ namespace TPWeb_equipo_6A
             VoucherNegocio negocio = new VoucherNegocio();
             List<Voucher> lista = negocio.Listar();
 
-            // Busco si el voucher existe en la lista que traje de la BD
             Voucher encontrado = lista.FirstOrDefault(v => v.CodigoVoucher == codigoVoucher);
 
-            if (encontrado != null)
-            {
-                // Lo guardo en la sesión (podés guardar solo el código o el objeto completo)
-                Session["Codigo"] = encontrado.CodigoVoucher;
-                // O incluso: Session["Voucher"] = encontrado;
-
-                Response.Redirect("ElegiPremio.aspx");
+            if (encontrado != null) // Si no se usó el vouvher, permite cargar
+            {                
+                if (!encontrado.IdCliente.HasValue)
+                {
+                    Session["Codigo"] = encontrado.CodigoVoucher;
+                    Response.Redirect("ElegiPremio.aspx");
+                }
+                else // El voucher ya fue usado
+                {
+                    Response.Redirect("VoucherUtilizado.aspx");
+                }
             }
             else
             {
-                lblErrorVaucher.Text = "El código ingresado no es válido.";
+                Response.Redirect("VoucherUtilizado.aspx");
             }
         }
+
     }
 }

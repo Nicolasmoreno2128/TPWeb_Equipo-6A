@@ -49,7 +49,7 @@
             </div>
 
         </div>
-        <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-primary mt-3" runat="server" OnClick="btnParticipar_Click" />
+        <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-dark mt-3" runat="server" OnClick="btnParticipar_Click" />
     </div>
 
 

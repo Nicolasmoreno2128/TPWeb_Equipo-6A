@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="VoucherUtilizado.aspx" />
     <Content Include="Web.config" />
     <Content Include="PromoGana.aspx" />
     <Content Include="ElegiPremio.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Formulario.aspx.designer.cs">
       <DependentUpon>Formulario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherUtilizado.aspx.cs">
+      <DependentUpon>VoucherUtilizado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VoucherUtilizado.aspx.designer.cs">
+      <DependentUpon>VoucherUtilizado.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
