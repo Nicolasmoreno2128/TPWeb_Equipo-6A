@@ -18,12 +18,7 @@ namespace TPWeb_equipo_6A
 
         }
         protected void btnParticipar_Click(object sender, EventArgs e)
-        {
-            if (!chbAcepto.Checked) //Si no está tildado el check, se muestra un mensaje de error
-            {                
-                lblError.Text = "Debes aceptar los términos y condiciones para continuar.";
-                return;
-            }
+        {            
             Cliente Client = new Cliente();
             ClienteNegocio negocio = new ClienteNegocio();
             try
@@ -41,6 +36,11 @@ namespace TPWeb_equipo_6A
             catch (Exception ex)
             {
                 throw ex;
+            }
+            if (!chbAcepto.Checked) //Si no está tildado el check, se muestra un mensaje de error
+            {
+                lblError.Text = "Debes aceptar los términos y condiciones para continuar.";
+                return;
             }
         }
         protected void txbDNI_TextChanged(object sender, EventArgs e)

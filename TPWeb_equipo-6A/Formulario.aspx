@@ -23,6 +23,8 @@
                 <div class="col">
                     <label for="txbEmail" class="form-label">Email</label>
                     <asp:TextBox type="email" runat="server" ID="TxbEmail" CssClass="form-control" placeholder="Email" />
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="TxbEmail" ErrorMessage="El email es obligatorio." CssClass="text-danger" Display="Dynamic" />
+                    <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="TxbEmail" ErrorMessage="El formato del email no es válido." CssClass="text-danger" Display="Dynamic" ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
                 </div>
             </div>
             <div class="row g-3">
