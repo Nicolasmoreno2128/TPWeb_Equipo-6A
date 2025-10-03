@@ -42,6 +42,9 @@ namespace TPWeb_equipo_6A
                 lblError.Text = "Debes aceptar los términos y condiciones para continuar.";
                 return;
             }
+
+            // Redirige a otra página
+            Response.Redirect("RegistroExitoso.aspx");
         }
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {

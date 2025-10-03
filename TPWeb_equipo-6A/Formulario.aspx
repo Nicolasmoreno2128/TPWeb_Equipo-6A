@@ -53,7 +53,7 @@
                 <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-dark mt-3" runat="server" OnClick="btnParticipar_Click" />
             </div>
             <div class="col align-self-center">
-                <asp:Label ID="lblError" runat="server" CssClass="text-danger mt-2 d-block"></asp:Label>
+                <asp:Label  ID="lblError" runat="server" CssClass="text-danger mt-2 d-block"></asp:Label>
             </div>
         </div>
 

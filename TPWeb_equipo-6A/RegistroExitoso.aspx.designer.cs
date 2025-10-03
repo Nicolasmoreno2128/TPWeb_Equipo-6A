@@ -11,25 +11,16 @@ namespace TPWeb_equipo_6A
 {
 
 
-    public partial class WebForm1
+    public partial class Registro_Exitoso
     {
 
         /// <summary>
-        /// txtCodigoVoucher control.
+        /// lblExitoso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoVoucher;
-
-        /// <summary>
-        /// btnSiguiente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSiguiente;
+        protected global::System.Web.UI.WebControls.Label lblExitoso;
     }
 }

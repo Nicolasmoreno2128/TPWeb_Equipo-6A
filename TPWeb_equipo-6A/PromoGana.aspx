@@ -7,7 +7,7 @@
     <div class="container d-flex flex-column justify-content-start align-items-center min-vh-100 pt-5">
     <div class="text-center">
         <label for="txtCodigoVoucher" class="form-label">Ingresa el codigo de tu voucher:</label>        
-        <asp:TextBox ID="txtCodigoVoucher" CssClass="form-control mb-3" runat="server" />       
+        <asp:TextBox ID="txtCodigoVoucher" CssClass="form-control mb-3" runat="server" required/>       
         <asp:Button Text="Siguiente" ID="btnSiguiente" OnClick="btnSiguiente_Click" CssClass="btn btn-dark" runat="server" />
     </div>
 </div>
