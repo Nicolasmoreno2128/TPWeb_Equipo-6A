@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using negocio;
 
 namespace negocio
 {
@@ -40,6 +41,30 @@ namespace negocio
             }
         }
 
+        public void MarcarCanjePorCodigo(string codigoVoucher, int idCliente, int idArticulo)
+        {
+            var datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta(@"
+            UPDATE Vouchers
+               SET IdCliente  = @idCliente,
+                   FechaCanje = @fecha,
+                   IdArticulo = @idArticulo
+             WHERE CodigoVoucher = @codigo
+               AND (FechaCanje IS NULL)");   // evita re-canjear
 
+                datos.setearParametro("@idCliente", idCliente);
+                datos.setearParametro("@fecha", DateTime.Now);
+                datos.setearParametro("@idArticulo", idArticulo);
+                datos.setearParametro("@codigo", codigoVoucher);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception) { throw; }
+            finally { datos.cerrarConexion(); }
+        }
     }
 }
+
+

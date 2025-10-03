@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="row row-cols-1 row-cols-md-3">
+         <!-- Lbl para ver si guarda el voucher en sesion>-->
+     <!--   <asp:Label ID="lblprueba" runat="server" Text="Label"></asp:Label>-->
 
         <% foreach (var art in ListaArticulo)
             {
@@ -40,7 +42,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%: art.Nombre %></h5>
                     <p class="card-text"><%: art.Descripcion %></p>
-                    <a href="Formulario.aspx" class="btn btn-dark">Quiero Este!</a>
+                   <a href="Formulario.aspx?id=<%: art.Id %>" class="btn btn-dark">Quiero Este!</a>
                 </div>
             </div>
         </div>

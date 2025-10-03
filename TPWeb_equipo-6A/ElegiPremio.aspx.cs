@@ -13,6 +13,7 @@ namespace TPWeb_equipo_6A
     {
         public List<Articulo> ListaArticulo { get; set; }
         public List<Imagen> ListaImagenes { get; set; }
+        public string codigoV { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -20,6 +21,13 @@ namespace TPWeb_equipo_6A
 
             ListaArticulo = negocio.listar();
             ListaImagenes = imgNegocio.Listar();
+
+
+            codigoV = Session["Codigo"] != null ? Session["Codigo"].ToString() : "";
+            lblprueba.Text = codigoV;
         }
+
+
     }
-}
+       
+    }

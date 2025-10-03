@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
@@ -29,8 +30,12 @@ namespace TPWeb_equipo_6A
             {                
                 if (!encontrado.IdCliente.HasValue)
                 {
+                    string codigo = txtCodigoVoucher.ToString();
                     Session["Codigo"] = encontrado.CodigoVoucher;
                     Response.Redirect("ElegiPremio.aspx");
+
+                    Session.Add("CodigoVoucher", codigo);
+
                 }
                 else // El voucher ya fue usado
                 {
