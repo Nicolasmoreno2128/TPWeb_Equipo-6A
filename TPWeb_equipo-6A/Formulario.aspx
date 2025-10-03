@@ -44,7 +44,6 @@
                     <label for="txbCiudad" class="form-label">Ciudad</label>
                     <asp:TextBox runat="server" ID="txbCiudad" CssClass="form-control" placeholder="Ciudad" />
                     <asp:RequiredFieldValidator ID="rfvCiudad" runat="server" ControlToValidate="txbCiudad" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
-
                 </div>
                 <div class="col md-3">
                     <label for="txbCodPostal" class="form-label">Codigo Postal</label>
