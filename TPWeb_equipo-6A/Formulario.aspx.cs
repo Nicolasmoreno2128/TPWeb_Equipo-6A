@@ -114,9 +114,13 @@ namespace TPWeb_equipo_6A
 
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
+            
 
+                EmailService email = new EmailService();
+            
             try
             {
+
                 if (!Page.IsValid) { lblError.Text = "Revisá los datos marcados."; return; }
                 if (!chbAcepto.Checked) { lblError.Text = "Debés aceptar las bases y condiciones."; return; }
 
@@ -157,6 +161,8 @@ namespace TPWeb_equipo_6A
                     };
 
                     cliNeg.agregar(cliente);
+                    email.armarCorreo(TxbEmail.Text);
+                    email.enviarEmail();
 
                     // Recuperar Id (no lo devuelve el agregar)
                     // Opción A: si tenés buscarPorDni:
@@ -176,12 +182,15 @@ namespace TPWeb_equipo_6A
                 Session.Remove("ArticuloId");
                 Response.Redirect("RegistroExitoso.aspx", false);
                 Context.ApplicationInstance.CompleteRequest();
+                
             }
             catch (Exception)
             {
                 lblError.Text = "Ocurrió un error al registrar. Intentalo nuevamente.";
                 // TODO: loggear si querés
             }
+
+            
 
         }
         protected void txbDNI_TextChanged(object sender, EventArgs e)
