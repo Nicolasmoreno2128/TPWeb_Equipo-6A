@@ -10,15 +10,21 @@
             <div class="col-sm-3">
                 <label for="txbDNI" class="form-label">DNI</label>
                 <asp:TextBox runat="server" ID="txbDNI" CssClass="form-control" placeholder="DNI" OnTextChanged="txbDNI_TextChanged" AutoPostBack="true" />
+                <asp:RequiredFieldValidator ID="rfvDIN" runat="server" ControlToValidate="txbDNI" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
+                <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="TxbDNI" ErrorMessage="Formato inválido, solo números." CssClass="text-danger" Display="Dynamic" ValidationExpression="^\d+$" />
             </div>
             <div class="row g-3">
                 <div class="col">
                     <label for="txbNombre" class="form-label">Nombre</label>
                     <asp:TextBox runat="server" ID="txbNombre" CssClass="form-control" placeholder="Nombre" />
+                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txbNombre" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
+
                 </div>
                 <div class="col">
                     <label for="txbApellido" class="form-label">Apellido</label>
                     <asp:TextBox runat="server" ID="txbApellido" CssClass="form-control" placeholder="Apellido" />
+                    <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txbApellido" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
+
                 </div>
                 <div class="col">
                     <label for="txbEmail" class="form-label">Email</label>
@@ -31,14 +37,19 @@
                 <div class="col md-6">
                     <label for="txbDireccion" class="form-label">Direccion</label>
                     <asp:TextBox runat="server" ID="txbDireccion" CssClass="form-control" placeholder="Direccion" />
+                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
+
                 </div>
                 <div class="col md-3">
                     <label for="txbCiudad" class="form-label">Ciudad</label>
                     <asp:TextBox runat="server" ID="txbCiudad" CssClass="form-control" placeholder="Ciudad" />
+                    <asp:RequiredFieldValidator ID="rfvCiudad" runat="server" ControlToValidate="txbCiudad" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
+
                 </div>
                 <div class="col md-3">
                     <label for="txbCodPostal" class="form-label">Codigo Postal</label>
                     <asp:TextBox runat="server" ID="txbCodPostal" CssClass="form-control" placeholder="CP" />
+                    <asp:RequiredFieldValidator ID="rfvCodPostal" runat="server" ControlToValidate="txbCodPostal" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
                 </div>
             </div>
             <div class="form-check mt-3">
@@ -53,7 +64,7 @@
                 <asp:Button Text="Participar!" ID="btnParticipar" CssClass="btn btn-dark mt-3" runat="server" OnClick="btnParticipar_Click" />
             </div>
             <div class="col align-self-center">
-                <asp:Label  ID="lblError" runat="server" CssClass="text-danger mt-2 d-block"></asp:Label>
+                <asp:Label ID="lblError" runat="server" CssClass="text-danger mt-2 d-block"></asp:Label>
             </div>
         </div>
 
