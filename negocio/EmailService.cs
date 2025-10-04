@@ -18,10 +18,10 @@ namespace negocio
         {
 
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("12f8840d7d5042", "8a2ffc51dfa85b");
+            server.Credentials = new NetworkCredential("grupo.6.appweb.sorteo@gmail.com", "xoly xovk shpo dmhc");
             server.EnableSsl = true;
-            server.Port = 2525;
-            server.Host= "sandbox.smtp.mailtrap.io";
+            server.Port = 587;
+            server.Host= "smtp.gmail.com";
             Asunto = "Sorteo";
             
 
@@ -30,7 +30,7 @@ namespace negocio
         public void armarCorreo(string correo)
         {
             email = new MailMessage();
-            email.From = new MailAddress("tp_web_grupo6@programacioniii.com");
+            email.From = new MailAddress("grupo.6.appweb.sorteo@gmail.com");
             email.To.Add(correo);
             email.Subject = Asunto;
             email.IsBodyHtml = true;
