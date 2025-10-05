@@ -25,4 +25,9 @@
 .row > .col {
     display: flex;
 }
+/*Flechitas del carrousel en color negro*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) brightness(0.3);
+}
 
