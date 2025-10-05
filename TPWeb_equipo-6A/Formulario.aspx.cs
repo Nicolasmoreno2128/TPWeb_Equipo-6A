@@ -18,109 +18,12 @@ namespace TPWeb_equipo_6A
 
         }
         public string codigoV { get; set; }
-
-        //protected void btnParticipar_Click(object sender, EventArgs e)
-        //{
-        //    lblError.Text = "";   // limpia el label
-
-        //    try
-        //    {
-        //        if (!Page.IsValid) { lblError.Text = "Revisá los datos marcados."; return; }
-        //        if (!chbAcepto.Checked) { lblError.Text = "Debés aceptar las bases."; return; }
-
-        //        // --- 1) Variables de sesión / query ---
-        //        var codigoVoucher = (Session["VoucherCodigo"] as string) ?? (Session["codigo"] as string);
-        //        if (string.IsNullOrWhiteSpace(codigoVoucher)) { lblError.Text = "Sesión de voucher expirada."; return; }
-
-        //        int articuloId;
-        //        if (Session["ArticuloId"] is int sesId) articuloId = sesId;
-        //        else if (!int.TryParse(Request.QueryString["id"], out articuloId))
-        //        { lblError.Text = "No se pudo determinar el premio."; return; }
-
-        //        if (!int.TryParse(txbDNI.Text.Trim(), out var documento))
-        //        { lblError.Text = "DNI inválido."; return; }
-
-        //        // --- 2) Alta/obtención de cliente ---
-        //        int idCliente = 0;
-        //        var cliNeg = new ClienteNegocio();
-
-        //        try
-        //        {
-        //            var existente = cliNeg.buscarPorDni(documento); // si no lo tenés, usá ObtenerIdPorDocumento()
-        //            if (existente != null)
-        //            {
-        //                idCliente = existente.Id;
-        //            }
-        //            else
-        //            {
-        //                var cliente = new Cliente
-        //                {
-        //                    Documento = documento,
-        //                    Nombre = (txbNombre.Text ?? "").Trim(),
-        //                    Apellido = (txbApellido.Text ?? "").Trim(),
-        //                    Email = (TxbEmail.Text ?? "").Trim(),
-        //                    Direccion = (txbDireccion.Text ?? "").Trim(),
-        //                    Ciudad = (txbCiudad.Text ?? "").Trim(),
-        //                    CP = int.TryParse(txbCodPostal.Text.Trim(), out var cp) ? cp : 0
-        //                };
-
-        //                cliNeg.agregar(cliente); // <-- si falla acá, abajo lo vas a ver
-        //                                         // recuperar Id (si tu agregar no lo devuelve)
-        //                var buscado = cliNeg.buscarPorDni(documento);
-        //                idCliente = buscado?.Id ?? 0;
-        //                if (idCliente == 0) { lblError.Text = "No se pudo obtener el Id del cliente luego del alta."; return; }
-        //            }
-        //        }
-        //        catch (SqlException ex)
-        //        {
-        //            lblError.Text = $"Error SQL al guardar/leer Cliente: {ex.Message}";
-        //            return;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            lblError.Text = $"Error al guardar/leer Cliente: {ex.Message}";
-        //            return;
-        //        }
-
-        //        // --- 3) Update del voucher por código ---
-        //        try
-        //        {
-        //            var vNeg = new VoucherNegocio();
-        //            vNeg.MarcarCanjePorCodigo(codigoVoucher, idCliente, articuloId);
-        //        }
-        //        catch (SqlException ex)
-        //        {
-        //            lblError.Text = $"Error SQL al actualizar Voucher (código={codigoVoucher}, artId={articuloId}, idCliente={idCliente}): {ex.Message}";
-        //            return;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            lblError.Text = $"Error al actualizar Voucher: {ex.Message}";
-        //            return;
-        //        }
-
-        //        // --- 4) Éxito ---
-        //        Session.Remove("ArticuloId");
-        //        Response.Redirect("RegistroExitoso.aspx", false);
-        //        Context.ApplicationInstance.CompleteRequest();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // catch de seguridad (no debería llegar acá)
-        //        lblError.Text = $"Error inesperado: {ex.Message}";
-        //    }
-        //}
-
-
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
-            
-
                 EmailService email = new EmailService();
             
             try
             {
-
                 if (!Page.IsValid) { lblError.Text = "Revisá los datos marcados."; return; }
                 if (!chbAcepto.Checked) { lblError.Text = "Debés aceptar las bases y condiciones."; return; }
 
@@ -186,38 +89,54 @@ namespace TPWeb_equipo_6A
             }
             catch (Exception)
             {
-                lblError.Text = "Ocurrió un error al registrar. Intentalo nuevamente.";
-                // TODO: loggear si querés
+                lblError.Text = "Ocurrió un error al registrar. Intentalo nuevamente.";            
             }
-
-            
-
-        }
+        }        
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
-            int dni;
-            if (int.TryParse(txbDNI.Text, out dni))
+            if (int.TryParse(txbDNI.Text, out int dni))
             {
                 ClienteNegocio negocio = new ClienteNegocio();
                 Cliente cliente = negocio.buscarPorDni(dni);
 
                 if (cliente != null)
                 {
+                    // Si existe, se completan los datos del cliente
                     txbNombre.Text = cliente.Nombre;
                     txbApellido.Text = cliente.Apellido;
                     TxbEmail.Text = cliente.Email;
                     txbDireccion.Text = cliente.Direccion;
                     txbCiudad.Text = cliente.Ciudad;
                     txbCodPostal.Text = cliente.CP.ToString();
+
+                    // Los campos pasan a solo lectura
+                    txbNombre.Enabled = false;
+                    txbApellido.Enabled = false;
+                    TxbEmail.Enabled = false;
+                    txbDireccion.Enabled = false;
+                    txbCiudad.Enabled = false;
+                    txbCodPostal.Enabled = false;
+
+                    lblError.Text = "Cliente encontrado. Los datos no pueden modificarse.";
                 }
                 else
                 {
+                    // Si el cliente no existe, se limpian los datos y se habilitan para editar
                     txbNombre.Text = "";
                     txbApellido.Text = "";
                     TxbEmail.Text = "";
                     txbDireccion.Text = "";
                     txbCiudad.Text = "";
                     txbCodPostal.Text = "";
+
+                    txbNombre.Enabled = true;
+                    txbApellido.Enabled = true;
+                    TxbEmail.Enabled = true;
+                    txbDireccion.Enabled = true;
+                    txbCiudad.Enabled = true;
+                    txbCodPostal.Enabled = true;
+
+                    lblError.Text = string.Empty;
                 }
             }
         }
