@@ -7,7 +7,7 @@
     <div class="container d-flex flex-column justify-content-start align-items-center min-vh-100 pt-5">
         <div class="text-center">
             <asp:Label ID="lblErrorVaucher" CssClass="form-label d-block mb-3" runat="server" Text=""></asp:Label>
-            <a href="Default.aspx" class="btn btn-dark">Volver</a>
+            <a href="PromoGana.aspx" class="btn btn-dark">Volver</a>
         </div>
     </div>
 
