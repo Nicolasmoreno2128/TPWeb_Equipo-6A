@@ -1,138 +1,142 @@
-# --- Core .NET / Visual Studio ---
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.cache
-*.orig
-*.psess
-*.vsp
-*.vsmdi
+# ---- ASP.NET WebForms / C# solution .gitignore ----
+# Editor/IDE
+.vscode/
+.vs/
+*.code-workspace
 
-# Rider / ReSharper / CodeRush
-.idea/
-*.sln.iml
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-.cr/
-.cr/personal
-
-# Build results
-[bB]in/
-[oO]bj/
-[Bb]uild/
-[Bb]ld/
+# Build output / intermediates
+[Bb]in/
+[Oo]bj/
 [Ll]og/
-[Ll]ogs/
-[Dd]ebug/
-[Rr]elease/
-[xX]64/
-[xX]86/
+Debug/
+Release/
+x64/
+x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
-ipch/
-artifacts/
+[Bb]uild/
+out/
 
-# Visual Studio
-.vs/
-.vscode/
-**/*.VC.db
-**/*.VC.opendb
+# Compiler/diagnostics
+*.pdb
+*.mdb
 *.opendb
+*.ilk
+*.cache
+*.tlog
+*.lastcodeanalysissucceeded
+*.scc
+*.svclog
+*.trace
+*.gcno
+*.gcda
 
-# Test / Coverage
+# NuGet
+*.nupkg
+*.snupkg
+# Don't commit restored packages
+**/packages/
+# Keep MSBuild props/targets that may be needed by restore
+!**/packages/build/
+!**/packages/repositories.config
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.rsuser
+*.psess
+*.vsp
+*.vspx
+
+# Test results
+[Tt]est[Rr]esult*/
 [Tt]est[Rr]esults/
 *.trx
 *.coverage
 *.coveragexml
-*.testsettings
-*.runsettings
 
-# NuGet
-*.nupkg
-# If using packages folder (legacy)
-packages/**
-!packages/build/
-!packages/repositories.config
-.nuget/
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# Paket
-.paket/
-paket-files/
-
-# Azure publish profiles & Web Deploy
-*.publishsettings
+# Publish artifacts
+**/app.publish/
+**/publish/
+**/Publish/
+**/dist/
 *.pubxml
 *.pubxml.user
-Properties/PublishProfiles/
-**/Properties/PublishProfiles/
-*.Publish.xml
 
 # IIS / IIS Express
 _IISExpress/
-.vs/iisexpress/
-applicationhost.config
-App_Data/Logs/
-App_Data/**/*.log
+.vs/config/applicationhost.config
 
-# ASP.NET (WebForms/MVC classic)
-# Local DBs and data files
-App_Data/*.mdf
-App_Data/*.ldf
-App_Data/*.mdb
-App_Data/aspnet-*.log
-App_Data/**/aspnetdb.*
-# Temporary & state
-App_Data/Temp/
-App_Data/Temporary ASP.NET Files/
-# Ignore common config overrides
-Web.Debug.config
-Web.Release.config
-*.config.user
+# ASP.NET temp & cache
+ASP.NET/*/Temporary ASP.NET Files/
 
-# Front-end artifacts (if present)
-node_modules/
-bower_components/
-wwwroot/lib/
-dist/
-tmp/
-temp/
-
-# SQL/DB artifacts
-*.db
+# Entity Framework / SQL Server designer
 *.dbmdl
+*.jfm
+*.edmx.diagram
+*.edmx.sql
+
+# Local DB / SQL Server files
 *.mdf
 *.ldf
-*.bak
-*.bacpac
 
 # Logs
 *.log
-*.svclog
+**/*.log.*
+**/*.log.1
 
-# Images/binaries (optional—uncomment if you don't want these tracked)
-#*.exe
-#*.dll
-#*.pdb
-#*.mp4
-#*.avi
-#*.mov
-#*.zip
-#*.rar
+# Packages from frontend tooling
+node_modules/
+bower_components/
+**/.sass-cache/
 
-# OS files
-.DS_Store
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Crash/backup/temp
+*.bak
+*.backup
+*.orig
+*.tmp
+*.temp
+*.cache
+*.swp
+
+# OS cruft
 Thumbs.db
 ehthumbs.db
-desktop.ini
+Desktop.ini
+.DS_Store
 
-# Others
-_UpgradeReport_Files/
-Backup*/
-$RECYCLE.BIN/
-~$*
-*~
+# Archives and binaries (avoid committing heavy assets accidentally)
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.exe
+*.dll
+*.msi
+*.mp4
+*.mov
+*.avi
+*.iso
+
+# Images: allow by default (uncomment to block large raw assets)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.svg
+
+# ---- Project-specific keeps/notes ----
+# Keep Web.config in source control, but DO NOT store real secrets in it.
+# Use Web.*.config transforms for environments and keep credentials out of the repo.
+# If you have a separate secrets file, list it explicitly here (example):
+# App_Data/Secrets.config
