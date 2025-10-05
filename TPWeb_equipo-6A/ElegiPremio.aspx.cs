@@ -20,11 +20,7 @@ namespace TPWeb_equipo_6A
             ImagenNegocio imgNegocio = new ImagenNegocio();
 
             ListaArticulo = negocio.listar();
-            ListaImagenes = imgNegocio.Listar();
-
-
-            codigoV = Session["Codigo"] != null ? Session["Codigo"].ToString() : "";
-            lblprueba.Text = codigoV;
+            ListaImagenes = imgNegocio.Listar();            
         }
 
 

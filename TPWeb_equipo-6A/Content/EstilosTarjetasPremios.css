@@ -1,0 +1,28 @@
+﻿.row {
+    margin-top: 2rem;
+}
+/* Alinear tarjetas */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* Bordes y tamaños de las tarjetas */
+.img-ajustada {
+    width: 100%; /* Ancho del carrusel */
+    height: 180px; /* Altura fija de la tarjeta */
+    object-fit: contain; /* Mantiene proporciones sin recortar ni deformar */
+    background-color: #f8f9fa; /* Fondo gris claro para rellenar márgenes */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 5px; /* Espacio interior para que no toque los bordes */
+}
+/* Asegura que los botones queden abajo */
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+/* Las columnas se adaptan bien al alto */
+.row > .col {
+    display: flex;
+}
+

@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Content\EstilosTarjetasPremios.css" />
     <Content Include="Global.asax" />
     <Content Include="RegistroExitoso.aspx" />
     <Content Include="VoucherUtilizado.aspx" />
