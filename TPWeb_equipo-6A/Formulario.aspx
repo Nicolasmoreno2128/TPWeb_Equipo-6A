@@ -49,8 +49,7 @@
                     <label for="txbCodPostal" class="form-label">Codigo Postal</label>
                     <asp:TextBox runat="server" ID="txbCodPostal" CssClass="form-control" placeholder="CP" />
                     <asp:RequiredFieldValidator ID="rfvCodPostal" runat="server" ControlToValidate="txbCodPostal" ErrorMessage="Campo es obligatorio." CssClass="text-danger" Display="Dynamic" />
-                    <asp:RegularExpressionValidator ID="RegularExpressionCodPostal" runat="server" ControlToValidate="TxbCodPostal" ErrorMessage="Solo se aceptan numeros" CssClass="text-danger" Display="Dynamic" ValidationExpression="^\d*$ o ^[0-9]*$" />
-
+                    <asp:RegularExpressionValidator ID="revCodPostal" runat="server" ControlToValidate="txbCodPostal" ErrorMessage="Debe contener exactamente 4 dígitos numéricos." CssClass="text-danger" Display="Dynamic" ValidationExpression="^\d{4}$" />
                 </div>
             </div>
             <div class="form-check mt-3">
