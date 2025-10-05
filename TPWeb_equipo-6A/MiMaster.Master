@@ -9,21 +9,7 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-
-    <!-- ajuste Cards
-<style>
-  /* Todas iguales de alto SIN recorte */
-  .card-img-top{
-    width:100%;
-    height:220px;     /* ajustá a gusto */
-    object-fit:contain;  /* <- sin recorte */
-    background:#fff;  /* relleno si sobran bordes */
-  }
-  /* (opcional) con recorte prolijo */
-  .card-img-top.cover{ object-fit:cover; }
-</style>
-        -->
+    </asp:ContentPlaceHolder>   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,8 +22,6 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
-                        <a class="nav-link active" aria-current="page" href="PromoGana.aspx">PromoGana</a>
-                        <a class="nav-link active" aria-current="page" href="ElegiPremio.aspx">ElegiPremio</a>                                               
                     </div>
                 </div>
             </div>

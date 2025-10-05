@@ -10,8 +10,6 @@ namespace negocio
 {
     public class ClienteNegocio
     {
-
-
         public Cliente buscarPorDni (int dni)
         {
             AccesoDatos datos = new AccesoDatos ();
@@ -46,10 +44,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
-
-
-
         public void agregar(Cliente nuevo)
         {            
             AccesoDatos datos = new AccesoDatos();
@@ -67,7 +61,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
